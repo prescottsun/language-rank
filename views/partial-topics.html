@@ -1,5 +1,5 @@
 <section class='section'>
-    <form action='/update' method='POST'>
+    <form name='ranking-form' action='/update' method='POST'>
         <table class='table'>
             <thead>
                 <tr>
@@ -15,7 +15,7 @@
                         ${rankData.map(rank => `
                             <label ${topic.ranking_scale_id === rank.id ? `class='active'` : ''}>
                                 ${rank.rank_name}
-                            <input type='radio' name='${topic.name}' value='${rank.id}$ {topic.ranking_scale_id === rank.id ? 'checked' : ''}>
+                            <input type='radio' name='${topic.name}' value='${rank.id}' ${topic.ranking_scale_id === rank.id ? 'checked' : ''}>
                             </label>
                             `).join('')}
                     </td>

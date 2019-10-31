@@ -12,7 +12,8 @@ class Topics {
             const response = await db.any(
             `SELECT topics.*, ranking_scale.rank_name
                 FROM topics
-                INNER JOIN ranking_scale on ranking_scale.id = topics.ranking_scale_id;`);
+                INNER JOIN ranking_scale on ranking_scale.id = topics.ranking_scale_id
+                ORDER BY topics.id;`);
             return response;
         } catch(error) {
             return error.message
@@ -36,7 +37,7 @@ class Topics {
         console.log(query);
         try {
             const response = await db.result(query);
-            console.log('response is', response);
+            // console.log('response is', response);
             return response;
         } catch(error) {
             console.log('update error', error.message);
